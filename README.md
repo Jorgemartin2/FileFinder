@@ -1,47 +1,42 @@
-🔍 Domain Search Bash Script
-Este é um script simples em Bash que realiza uma busca na internet com base em um domínio e uma extensão/tecnologia, como por exemplo:
-https://www.google.com php
+## 🔎 Bash Domain Crawler com lynx
+Este é um script simples em Bash que utiliza o navegador em modo texto lynx para fazer buscas no Google por arquivos com uma determinada extensão em um domínio específico.
 
-📌 Objetivo
-Automatizar pesquisas de possíveis arquivos ou páginas específicas em um domínio, com foco em encontrar tecnologias, linguagens ou padrões conhecidos.
+## 🧰 Tecnologias usadas
+- lynx (modo texto de navegação web)
 
-🚀 Exemplo de uso
-```bash
-./FileFinder.sh https://www.google.com php
-```
-Este comando realizará uma busca no Google por:
-```bash
-site:https://www.google.com ext:php
-```
-⚙️ Como usar
-Dê permissão de execução ao script:
-```bash
-chmod +x FileFinder.sh
-```
-Execute com os parâmetros desejados:
-```bash
-./search.sh <domínio> <extensão/termo>
-```
-Exemplo:
-```bash
-./FileFinder.sh https://example.com asp
-```
-🛠️ Requisitos
-Terminal Linux ou WSL
+- grep, cut, egrep, sed (ferramentas GNU/Linux)
 
-curl ou xdg-open (dependendo do método usado para abrir a busca no navegador)
+## 📌 Objetivo
+Fazer uma varredura rápida por URLs indexadas no Google que pertençam a um domínio e contenham arquivos com determinada extensão.
 
-Conexão com a internet
+## 🚀 Como usar
+1. Dê permissão de execução:
+  ```bash
+  chmod +x FileFinder.sh
+  ```
+2. Execute com os argumentos:
+  ```bash
+  ./FileFinder.sh <domínio> <extensão>
+  ```
+3. Exemplo:
+  ```bash
+  ./FileFinder.sh example.com php
+  ```
+- Isso irá buscar por arquivos .php no domínio example.com.
 
-🧠 O que o script faz
-Monta uma query de busca com site:domínio e a extensão/tecnologia
+## 📥 Saída esperada
+URLs como:
+  ```bash
+  https://example.com/index.php
+  https://example.com/login.php
+  https://example.com/app/user.php
+  ```
+## ❗ Requisitos
+lynx instalado:
+  ```bash
+  sudo apt install lynx
+  ```
+- Conexão com a internet
 
-Abre a busca no navegador (ou retorna a URL da busca)
-
-📌 Possíveis usos
-Reconhecimento de superfície de ataque (OSINT)
-
-Busca por arquivos específicos (ex: ext:php, ext:asp, inurl:login, etc)
-
-Pentests e auditorias (ética e legalmente autorizadas)
-
+## ⚠️ Aviso legal
+Este script é apenas para fins educacionais e testes autorizados. Nunca utilize ferramentas de varredura sem consentimento explícito do proprietário do domínio. O uso indevido pode ser considerado atividade maliciosa e resultar em sanções legais.
